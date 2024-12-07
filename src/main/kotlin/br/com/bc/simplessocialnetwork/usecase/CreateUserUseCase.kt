@@ -25,9 +25,9 @@ class CreateUserUseCase(
 
 
         } catch (e: EmptyResultDataAccessException) {
-            return userRepository.save(UserMapper.mapToEntity(dto))
+
         }
 
-        throw IllegalArgumentException("User with email ${dto.email} already exists")
+        return userRepository.save(UserMapper.mapToEntity(dto))
     }
 }
